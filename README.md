@@ -32,7 +32,7 @@
 By planning your project architecture in detail, you'll be able to effectively implement each component and ensure a smooth flow of data from ingestion to visualization. Let me know if you need further assistance with any specific aspect of this architecture!
 
 
-## Step by step approcah taken to complete the project
+## Step by step approach taken to complete the project
 Connecting MSSQL Server to Azure involves setting up the necessary authentication and permissions, as well as securely storing credentials in Azure Key Vault. Here's how you can accomplish this:
 
 1.  **Restore Database "AdventureWorksLT2017"**:
