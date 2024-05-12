@@ -6,7 +6,7 @@
     
     -   Set up Azure Data Factory (ADF) to create pipelines for ingesting data from the on-premises SQL Server Database.
     -   Configure the ADF pipeline to push data to the Bronze container in ADLS Gen2.
-    -   Ensure that data ingestion is scheduled appropriately based on the frequency of updates in the SQL Server Database.
+    
 2.  **Data Transformation (Databricks)**:
     
     -   Utilize Azure Databricks for data transformation tasks.
