@@ -30,3 +30,33 @@
     -   Implement data refresh schedules in Power BI to ensure that reports reflect the most recent data from Azure Synapse Analytics.
 
 By planning your project architecture in detail, you'll be able to effectively implement each component and ensure a smooth flow of data from ingestion to visualization. Let me know if you need further assistance with any specific aspect of this architecture!
+
+
+
+Connecting MSSQL Server to Azure involves setting up the necessary authentication and permissions, as well as securely storing credentials in Azure Key Vault. Here's how you can accomplish this:
+
+1.  **Restore Database "AdventureWorksLT2017"**:
+    
+    -   Connect to your MSSQL Server instance using SQL Server Management Studio (SSMS) or another SQL client.
+    -   Restore the "AdventureWorksLT2017" database from a backup file or detach/attach method as per your requirement.
+2.  **Create Login and User**:
+
+    USE AdventureWorksLT2017
+    
+    CREATE LOGIN admin WITH PASSWORD = 'lksd090923jskdjkj@jsdlk'
+    CREATE USER admin FOR LOGIN admin
+
+    
+3.  **Grant Permissions**:
+
+    USE AdventureWorksLT2017
+    
+    ALTER ROLE db_datareader ADD MEMBER admin 
+    
+5.  **Save Credentials in Azure Key Vault**:
+    
+    -   Navigate to the Azure Key Vault service in the Azure portal.
+    -   Create a new Key Vault or select an existing one.
+    -   Add a new secret and input the username and password for the MSSQL Server login "admin".
+
+With these steps, you've connected your MSSQL Server database to Azure and securely stored the login credentials in Azure Key Vault. This ensures that your credentials are safely managed and accessible only to authorized applications or services. Let me know if you need further clarification on any of these steps!
