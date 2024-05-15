@@ -52,6 +52,10 @@ Connecting MSSQL Server to Azure involves setting up the necessary authenticatio
     USE AdventureWorksLT2017
     
     ALTER ROLE db_datareader ADD MEMBER sulara
+
+![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/mssql_datareader_permission.png)
+
+By assigning the DataReader role, you're granting read-only access to the database, which allows users to view data but not make any modifications. This ensures security and control over your database while allowing necessary access for data analysis, reporting, or other purposes through Azure Data Factory or other tools.
     
 5.  **Save Credentials in Azure Key Vault**:
     
