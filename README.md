@@ -43,15 +43,15 @@ Connecting MSSQL Server to Azure involves setting up the necessary authenticatio
 
     USE AdventureWorksLT2017
     
-    CREATE LOGIN admin WITH PASSWORD = 'lksd090923jskdjkj@jsdlk'
-    CREATE USER admin FOR LOGIN admin
+    CREATE LOGIN sulara WITH PASSWORD = 'lksd090923jskdjkj@jsdlk'
+    CREATE USER sulara FOR LOGIN sulara
 
     
 3.  **Grant Permissions**:
 
     USE AdventureWorksLT2017
     
-    ALTER ROLE db_datareader ADD MEMBER admin 
+    ALTER ROLE db_datareader ADD MEMBER sulara
     
 5.  **Save Credentials in Azure Key Vault**:
     
