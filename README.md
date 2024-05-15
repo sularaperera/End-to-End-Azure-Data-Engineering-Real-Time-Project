@@ -82,3 +82,9 @@ By assigning the DataReader role, you're granting read-only access to the databa
     -   Add a new secret and input the username and password for the MSSQL Server login "sulara".
 
 With these steps, you've connected your MSSQL Server database to Azure and securely stored the login credentials in Azure Key Vault. This ensures that your credentials are safely managed and accessible only to authorized applications or services. Let me know if you need further clarification on any of these steps!
+
+
+### Intergration Runtime
+A self-hosted integration runtime (SHIR) in Azure Data Factory is a runtime environment installed on a local machine or a virtual machine within your network. It enables Azure Data Factory to connect to on-premises data sources securely. By installing the SHIR and registering it with your Azure Data Factory, you establish a bridge between your on-premises resources, such as a SQL Server database, and your cloud-based data processing pipelines. This setup allows you to efficiently move data between on-premises and cloud environments, facilitating tasks like pulling data from an on-premises SQL Server database and storing it in Azure Data Lake Storage Gen2 for further processing or analysis.
+
+[End-to-End-Azure-Data-Engineering-Real-Time-Project/Images/shir.png at main · sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project (github.com)](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/shir.png)
