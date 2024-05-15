@@ -61,6 +61,6 @@ By assigning the DataReader role, you're granting read-only access to the databa
     
     -   Navigate to the Azure Key Vault service in the Azure portal.
     -   Create a new Key Vault or select an existing one.
-    -   Add a new secret and input the username and password for the MSSQL Server login "admin".
+    -   Add a new secret and input the username and password for the MSSQL Server login "sulara".
 
 With these steps, you've connected your MSSQL Server database to Azure and securely stored the login credentials in Azure Key Vault. This ensures that your credentials are safely managed and accessible only to authorized applications or services. Let me know if you need further clarification on any of these steps!
