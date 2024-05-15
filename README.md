@@ -33,6 +33,24 @@ By planning your project architecture in detail, you'll be able to effectively i
 
 
 ## Step by step approach taken to complete the project
+
+Now I have these resources set up, I can start integrating them and building out data engineering pipelines and workflows.
+
+Here's a brief overview of the resources I've created:
+
+1.  **Resource Group**: This is like a container for holding related Azure resources. It helps you manage and organize your resources effectively.
+    
+2.  **Azure Data Factory**: A cloud-based data integration service that allows you to create, schedule, and manage data pipelines.
+    
+3.  **Azure Databricks**: An Apache Spark-based analytics platform optimized for Azure. It provides a collaborative environment for big data analytics and machine learning.
+    
+4.  **Key Vault**: A secure storage location for managing application secrets, keys, and certificates.
+    
+5.  **Storage Account (ADLS Gen2)**: Azure Data Lake Storage Gen2 provides scalable, secure storage for big data analytics. It's optimized for analytics workloads.
+    
+6.  **Synapse Workspace**: Azure Synapse Analytics is a cloud-based analytics service that provides both data integration and big data analytics capabilities. The Synapse Workspace is where you'll develop, orchestrate, and monitor your analytics solutions.
+
+
 Connecting MSSQL Server to Azure involves setting up the necessary authentication and permissions, as well as securely storing credentials in Azure Key Vault. Here's how you can accomplish this:
 
 1.  **Restore Database "AdventureWorksLT2017"**:
