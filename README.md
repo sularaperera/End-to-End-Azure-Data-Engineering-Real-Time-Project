@@ -94,3 +94,5 @@ With these steps, you've connected your MSSQL Server database to Azure and secur
 A self-hosted integration runtime (SHIR) in Azure Data Factory is a runtime environment installed on a local machine or a virtual machine within your network. It enables Azure Data Factory to connect to on-premises data sources securely. By installing the SHIR and registering it with your Azure Data Factory, you establish a bridge between your on-premises resources, such as a SQL Server database, and your cloud-based data processing pipelines. This setup allows you to efficiently move data between on-premises and cloud environments, facilitating tasks like pulling data from an on-premises SQL Server database and storing it in Azure Data Lake Storage Gen2 for further processing or analysis.
 
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/shir.png)
+
+![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-17%2010_21_22-Microsoft%20Integration%20Runtime%20Configuration%20Manager.png)
