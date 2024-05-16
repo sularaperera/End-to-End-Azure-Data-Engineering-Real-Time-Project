@@ -53,7 +53,8 @@ Here's a brief overview of the resources I've created:
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/resources_list.png)
 
 
-**Microsoft SQL Server - Setup**:
+## Microsoft SQL Server - Setup
+
 Connecting MSSQL Server to Azure involves setting up the necessary authentication and permissions, as well as securely storing credentials in Azure Key Vault. Here's how you can accomplish this:
 
 1.  **Restore Database "AdventureWorksLT2017"**:
