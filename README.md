@@ -50,6 +50,9 @@ Here's a brief overview of the resources I've created:
     
 6.  **Synapse Workspace**: Azure Synapse Analytics is a cloud-based analytics service that provides both data integration and big data analytics capabilities. The Synapse Workspace is where you'll develop, orchestrate, and monitor your analytics solutions.
 
+![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/resources_list.png)
+
+
 
 Connecting MSSQL Server to Azure involves setting up the necessary authentication and permissions, as well as securely storing credentials in Azure Key Vault. Here's how you can accomplish this:
 
