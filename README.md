@@ -96,3 +96,46 @@ A self-hosted integration runtime (SHIR) in Azure Data Factory is a runtime envi
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/shir.png)
 
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-17%2010_21_22-Microsoft%20Integration%20Runtime%20Configuration%20Manager.png)
+
+
+## Copy all tables from MSSQL to ADLS using ADF
+
+Creating an Azure Data Factory (ADF) pipeline to copy all tables from an on-premises SQL Server to Azure Data Lake Storage Gen2 (ADLS Gen2) involves a few key steps.
+
+1.  **Set Up Linked Services**:
+    
+    -   **SQL Server Linked Service**: Configure a linked service for your on-premises SQL Server using the self-hosted integration runtime (SHIR).
+    -   **ADLS Gen2 Linked Service**: Set up a linked service for your ADLS Gen2 account.
+2.  **Create Datasets**:
+    
+    -   **Source Dataset**: Create a dataset for the SQL Server tables.
+    -   **Sink Dataset**: Create a dataset for the ADLS Gen2 container where the data will be copied.
+3.  **Create a New Pipeline**:
+    
+    -   In your ADF, create a new pipeline.
+4.  **Add Lookup Activity**:
+    
+    -   Use a Lookup activity to retrieve the list of tables from your SQL Server database.
+    -   Configure the Lookup activity with a query like `SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'`.
+5.  **Add ForEach Activity**:
+    
+    -   Add a ForEach activity to iterate over the list of tables returned by the Lookup activity.
+    -   In the ForEach activity, set the items to `@activity('LookupActivityName').output.value`.
+6.  **Configure Copy Activity Inside ForEach**:
+    
+    -   Inside the ForEach activity, add a Copy activity.
+    -   Set the source of the Copy activity to the SQL Server dataset and parameterize the table name.
+    -   Set the sink of the Copy activity to the ADLS Gen2 dataset, specifying the destination folder and file name (which can be parameterized to use the table name).
+7.  **Parameterize the Datasets**:
+    
+    -   **Source Dataset**: Parameterize the table name in the SQL Server dataset.
+    -   **Sink Dataset**: Parameterize the folder path and file name in the ADLS Gen2 dataset.
+8.  **Run the Pipeline**:
+    
+    -   Validate the pipeline configuration and run it.
+    -   Monitor the pipeline execution to ensure that data is being copied from each table in the SQL Server to the corresponding location in ADLS Gen2.
+
+[End-to-End-Azure-Data-Engineering-Real-Time-Project/Images/2024-05-18 20_01_26-.png at main · sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project (github.com)](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-18%2020_01_26-.png)
+
+This configuration will iterate through all tables in your SQL Server, copying each one to a specified location in your ADLS Gen2 bronze container. Adjust the dataset and linked service details as per your specific setup.
+
