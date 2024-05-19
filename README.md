@@ -147,3 +147,5 @@ This configuration will iterate through all tables in your SQL Server, copying e
 ## Transforming Data using Azure Databricks
 
 Great! Now that you have your data loaded into the ADLS Gen2 bronze container and a Databricks cluster set up, you can start performing data transformations using Databricks. Here’s a step-by-step guide to help you get started with your data transformation tasks:
+
+### Mount ADLS Gen2 to DBFS using Credential Passthrough
