@@ -145,3 +145,5 @@ Creating an Azure Data Factory (ADF) pipeline to copy all tables from an on-prem
 This configuration will iterate through all tables in your SQL Server, copying each one to a specified location in your ADLS Gen2 bronze container. Adjust the dataset and linked service details as per your specific setup.
 
 ## Transforming Data using Azure Databricks
+
+Great! Now that you have your data loaded into the ADLS Gen2 bronze container and a Databricks cluster set up, you can start performing data transformations using Databricks. Here’s a step-by-step guide to help you get started with your data transformation tasks:
