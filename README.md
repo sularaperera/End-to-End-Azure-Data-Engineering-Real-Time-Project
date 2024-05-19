@@ -149,3 +149,14 @@ This configuration will iterate through all tables in your SQL Server, copying e
 Great! Now that you have your data loaded into the ADLS Gen2 bronze container and a Databricks cluster set up, you can start performing data transformations using Databricks. Here’s a step-by-step guide to help you get started with your data transformation tasks:
 
 ### Mount ADLS Gen2 to DBFS using Credential Passthrough
+
+
+![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/12.png)
+
+configs = { "fs.azure.account.auth.type": "CustomAccessToken", "fs.azure.account.custom.token.provider.class": spark.conf.get("spark.databricks.passthrough.adls.gen2.tokenProviderClassName") }
+
+dbutils.fs.mount (
+	source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/", mount_point = "/mnt/<mount-name>",
+	extra_configs = configs)
+
+ Here you can replace <container-name>, <storage-account-name> and <mount-name> with azure resources names
