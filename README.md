@@ -159,4 +159,4 @@ Great! Now that you have your data loaded into the ADLS Gen2 bronze container an
     	source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/", mount_point = "/mnt/<mount-name>",
     	extra_configs = configs)
 
- Here you can replace <container-name>, <storage-account-name> and <mount-name> with azure resources names
+      Here you can replace <container-name>, <storage-account-name> and <mount-name> with azure resources names
