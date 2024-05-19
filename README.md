@@ -139,6 +139,9 @@ Creating an Azure Data Factory (ADF) pipeline to copy all tables from an on-prem
 
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-18%2020_15_03-.png)
 
+
+![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-19%2020_53_35-bronze%20-%20Microsoft%20Azure%20and%206%20more%20pages%20-%20Sulara%20Perera%20-%20Microsoft%E2%80%8B%20Edge.png)
+
 This configuration will iterate through all tables in your SQL Server, copying each one to a specified location in your ADLS Gen2 bronze container. Adjust the dataset and linked service details as per your specific setup.
 
 ## Transforming Data using Azure Databricks
