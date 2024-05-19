@@ -190,35 +190,18 @@ Open your Databricks workspace and create a new notebook or open an existing one
 Use the following code to set up the configuration for ADLS Gen2 with the Service Principal:
 
     container_name =  "bronze"
-    
     storage_account_name =  "adlscleverstudiesmrk"
-    
     client_id =  "b82f9382-7e2b-4837-8652-51e3175eb23a"
-    
     tenant_id =  "7effba51-b521-4654-913a-44f334bd092c"
-    
     client_secret =  "sC58Q~MNHqurroe5_u0l.5gM-vFgk.UEyMK0waak"
     
-      
-      
-    
     configs = {"fs.azure.account.auth.type": "OAuth",
-    
     "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-    
     "fs.azure.account.oauth2.client.id": f"{client_id}",
-    
     "fs.azure.account.oauth2.client.secret": f"{client_secret}",
-    
     "fs.azure.account.oauth2.client.endpoint": f"https://login.microsoftonline.com/{tenant_id}/oauth2/token"}
     
-      
-      
-    
     dbutils.fs.mount(
-    
     source=f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/",
-    
     mount_point=  f"/mnt/{storage_account_name}/{container_name}",
-    
     extra_configs= configs)
