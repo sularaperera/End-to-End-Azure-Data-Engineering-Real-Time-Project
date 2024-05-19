@@ -160,3 +160,65 @@ Great! Now that you have your data loaded into the ADLS Gen2 bronze container an
     	extra_configs = configs)
 
       Here you can replace <container-name>, <storage-account-name> and <mount-name> with azure resources names
+
+### Or, you could use Service Principle to connect with ADLS
+
+using a Service Principal to connect with Azure Data Lake Storage (ADLS) Gen2 is a common and secure way to manage data access and use a Service Principal to connect Databricks to ADLS Gen2:
+
+#### Step 1: Set Up the Service Principal
+Create a Service Principal:
+
+#### Go to the Azure portal.
+Navigate to "Azure Active Directory" > "App registrations" > "New registration".
+Provide a name, select the supported account type, and register the application.
+Note the "Application (client) ID" and "Directory (tenant) ID".
+
+#### Create a Client Secret:
+
+In the registered application, navigate to "Certificates & secrets".
+Create a new client secret and note its value (you'll need this for configuration).
+Assign Role to the Service Principal:
+
+Navigate to your ADLS Gen2 storage account.
+Go to "Access Control (IAM)" > "Add role assignment".
+Assign the "Storage Blob Data Contributor" role to the Service Principal.
+
+#### Step 2: Configure Databricks to Use the Service Principal
+Set Up Configuration in Databricks:
+
+Open your Databricks workspace and create a new notebook or open an existing one.
+Use the following code to set up the configuration for ADLS Gen2 with the Service Principal:
+
+    container_name =  "bronze"
+    
+    storage_account_name =  "adlscleverstudiesmrk"
+    
+    client_id =  "b82f9382-7e2b-4837-8652-51e3175eb23a"
+    
+    tenant_id =  "7effba51-b521-4654-913a-44f334bd092c"
+    
+    client_secret =  "sC58Q~MNHqurroe5_u0l.5gM-vFgk.UEyMK0waak"
+    
+      
+      
+    
+    configs = {"fs.azure.account.auth.type": "OAuth",
+    
+    "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    
+    "fs.azure.account.oauth2.client.id": f"{client_id}",
+    
+    "fs.azure.account.oauth2.client.secret": f"{client_secret}",
+    
+    "fs.azure.account.oauth2.client.endpoint": f"https://login.microsoftonline.com/{tenant_id}/oauth2/token"}
+    
+      
+      
+    
+    dbutils.fs.mount(
+    
+    source=f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/",
+    
+    mount_point=  f"/mnt/{storage_account_name}/{container_name}",
+    
+    extra_configs= configs)
