@@ -273,38 +273,22 @@ This code effectively reads raw data from the bronze layer, applies necessary da
     
     
     table_names = []
-    
-      
-    
     for table in dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/"):
-    
     table_names.append(table.name.split('/')[0])
     
     
     for table in table_names:
-    
     path =  'dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/'  + table
-    
     print(path)
-    
     df = spark.read.format('delta').load(path)
-    
     column_names = df.columns
     
       
-    
     for old_col_name in column_names:
-    
     # convert column name from ColumnName to Column_Name format
-    
     new_col_name = "".join(["_" + char if char.isupper() and not old_col_name[i -1].isupper() else char for i, char in enumerate(old_col_name)]).lstrip("_")
-    
-      
-
     df = df.withColumnRenamed(old_col_name, new_col_name)
     
       
-    
     output_path =  'dbfs:/mnt/adlscleverstudiesmrk/gold/SalesLT/'  + table
-    
     df.write.format('delta').mode("overwrite").save(output_path)
