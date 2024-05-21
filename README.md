@@ -31,8 +31,9 @@
 
 By planning your project architecture in detail, you'll be able to effectively implement each component and ensure a smooth flow of data from ingestion to visualization. Let me know if you need further assistance with any specific aspect of this architecture!
 
+# Environment Setup
 
-## Step by step approach taken to complete the project
+### Step by step approach taken to complete the project
 
 Now I have these resources set up, I can start integrating them and building out data engineering pipelines and workflows.
 
