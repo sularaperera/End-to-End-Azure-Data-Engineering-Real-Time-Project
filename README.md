@@ -99,6 +99,8 @@ A self-hosted integration runtime (SHIR) in Azure Data Factory is a runtime envi
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-17%2010_21_22-Microsoft%20Integration%20Runtime%20Configuration%20Manager.png)
 
 
+# Data Ingestion
+
 ## Copy all tables from MSSQL to ADLS using ADF
 
 Creating an Azure Data Factory (ADF) pipeline to copy all tables from an on-premises SQL Server to Azure Data Lake Storage Gen2 (ADLS Gen2) involves a few key steps.
