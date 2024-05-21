@@ -207,7 +207,7 @@ Use the following code to set up the configuration for ADLS Gen2 with the Servic
     extra_configs= configs)
 
 
-## Lets tranform the data
+## Lets tranform the data (bronze to silver)
 
 #### 1. Listing Files in the Directory
 
@@ -265,3 +265,46 @@ Use the following code to set up the configuration for ADLS Gen2 with the Servic
 -   **`df.write.format('delta').mode("overwrite").save(output_path)`**: Writes the DataFrame in Delta format to the specified path, overwriting any existing data.
 
 This code effectively reads raw data from the bronze layer, applies necessary date transformations, and writes the cleaned and transformed data to the silver layer for further analysis or processing.
+
+
+## Lets tranform the data (silver to gold)
+
+dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/")
+    
+    
+    table_names = []
+    
+      
+    
+    for table in dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/"):
+    
+    table_names.append(table.name.split('/')[0])
+    
+    
+    for table in table_names:
+    
+    path =  'dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/'  + table
+    
+    print(path)
+    
+    df = spark.read.format('delta').load(path)
+    
+    column_names = df.columns
+    
+      
+    
+    for old_col_name in column_names:
+    
+    # convert column name from ColumnName to Column_Name format
+    
+    new_col_name = "".join(["_" + char if char.isupper() and not old_col_name[i -1].isupper() else char for i, char in enumerate(old_col_name)]).lstrip("_")
+    
+      
+
+    df = df.withColumnRenamed(old_col_name, new_col_name)
+    
+      
+    
+    output_path =  'dbfs:/mnt/adlscleverstudiesmrk/gold/SalesLT/'  + table
+    
+    df.write.format('delta').mode("overwrite").save(output_path)
