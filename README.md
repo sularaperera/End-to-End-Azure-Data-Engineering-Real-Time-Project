@@ -269,7 +269,7 @@ This code effectively reads raw data from the bronze layer, applies necessary da
 
 ## Lets tranform the data (silver to gold)
 
-dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/")
+    dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/")
     
     
     table_names = []
