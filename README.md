@@ -205,3 +205,63 @@ Use the following code to set up the configuration for ADLS Gen2 with the Servic
     source=f"abfss://{container_name}@{storage_account_name}.dfs.core.windows.net/",
     mount_point=  f"/mnt/{storage_account_name}/{container_name}",
     extra_configs= configs)
+
+
+## Lets tranform the data
+
+#### 1. Listing Files in the Directory
+
+    # List files in the SalesLT directory
+    dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/bronze/SalesLT/")
+
+#### 2. Extracting Table Names
+
+    table_names = []
+    for table in dbutils.fs.ls("dbfs:/mnt/adlscleverstudiesmrk/bronze/SalesLT/"):
+        table_names.append(table.path.split('/')[-1])
+
+-   This loop extracts the table names from the paths listed in the previous step.
+-   **`table.path.split('/')[-1]`**: Splits the file path by '/' and takes the last part, which is the table name.
+
+
+#### Importing Required Libraries
+
+    from pyspark.sql.functions import from_utc_timestamp, date_format 
+    from pyspark.sql.types import TimestampType
+
+#### Processing Each Table
+
+    for table in table_names:
+        path = 'dbfs:/mnt/adlscleverstudiesmrk/bronze/SalesLT/' + table
+        print(path)
+        df = spark.read.format('parquet').load(path)
+        columns = df.columns
+-   Iterates over each table name, constructs the full path, and reads the data into a Spark DataFrame.
+-   **`spark.read.format('parquet').load(path)`**: Reads the data from the specified path in Parquet format into a DataFrame.
+-   **`df.columns`**: Retrieves the list of columns in the DataFrame.
+
+
+#### Transforming Date Columns
+
+    for col in columns:
+        if "Date" in col or "date" in col:
+            df = df.withColumn(col, date_format(from_utc_timestamp(df[col].cast(TimestampType()),"UTC"),"yyyy-MM-dd"))
+
+-   Transforms columns containing dates to a specific date format.
+-   **`if "Date" in col or "date" in col`**: Checks if the column name contains "Date" or "date".
+-   **`df.withColumn`**: Creates a new column or replaces an existing column in the DataFrame.
+-   **`df[col].cast(TimestampType())`**: Casts the column to a `TimestampType`.
+-   **`from_utc_timestamp(df[col], "UTC")`**: Converts the timestamp to UTC.
+-   **`date_format(..., "yyyy-MM-dd")`**: Formats the timestamp to the "yyyy-MM-dd" date format.
+
+#### Writing Transformed Data
+
+    output_path = 'dbfs:/mnt/adlscleverstudiesmrk/silver/SalesLT/' + table
+    df.write.format('delta').mode("overwrite").save(output_path)
+
+
+-   Writes the transformed DataFrame to the silver container in Delta format.
+-   **`output_path`**: Constructs the output path for the transformed data.
+-   **`df.write.format('delta').mode("overwrite").save(output_path)`**: Writes the DataFrame in Delta format to the specified path, overwriting any existing data.
+
+This code effectively reads raw data from the bronze layer, applies necessary date transformations, and writes the cleaned and transformed data to the silver layer for further analysis or processing.
