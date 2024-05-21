@@ -303,4 +303,8 @@ This code effectively reads raw data from the bronze layer, applies necessary da
 ![enter image description here](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/2024-05-21%2021_32_41-gold%20-%20Microsoft%20Azure%20and%205%20more%20pages%20-%20Sulara%20Perera%20-%20Microsoft%E2%80%8B%20Edge.png)
 
 
+# Data Loading
 
+
+
+# Data Reporting
