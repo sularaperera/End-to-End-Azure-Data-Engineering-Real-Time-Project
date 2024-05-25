@@ -1,4 +1,4 @@
-<img src="https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/Banner_new.jpeg" width=600 class="center"></img>
+<img src="https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/Banner_new.jpeg" width=800></img>
 
 
 ## Project Architecture
