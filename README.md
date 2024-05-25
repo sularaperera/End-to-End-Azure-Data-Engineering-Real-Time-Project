@@ -1,4 +1,4 @@
-![width=600](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/Banner.jpeg)
+![width=600](https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/Banner_new.jpeg)
 
 
 ## Project Architecture
