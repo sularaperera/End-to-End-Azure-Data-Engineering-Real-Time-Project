@@ -1,4 +1,4 @@
-<img src="https://github.com/sularaperera/Bing-News-End-to-End-Microsoft-Azure-Fabric-Data-Engineering-Project-PySpark/blob/main/Images/Poster.png" width=600></img>
+<img src="https://github.com/sularaperera/End-to-End-Azure-Data-Engineering-Real-Time-Project/blob/main/Images/Banner_new.jpeg" width=600></img>
 
 
 ## Project Architecture
